@@ -14,5 +14,13 @@ def hi_world():
 def bye_world():
     return 'Bye from Phaneendra!'
 
+@route('/list')
+def get_list():
+    cursor = connection.cursor()
+    rows = cursor.execute("select id, description from list")
+    rows = list(rows)
+    rows = [ {'id':row[0] ,'desc':row[1]} for row in rows ]
+    return template("bike_list.tpl", name="phaneendra", bike_list=rows)
+
 application = default_app()
 
