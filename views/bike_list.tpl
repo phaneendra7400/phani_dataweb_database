@@ -14,7 +14,6 @@
 <hr/>
 <form action="/add" method="post">
   <p>New item: <input name="description"/></p>
-  <p>Quantity: <input name="quantity"/></p>
   <p><button type="submit">Submit</button>
 </form>
 </body>

@@ -1,6 +1,6 @@
 from bottle import default_app, route, get, post, template, request, redirect
 
-from dataset_database import get_items, add_item, delete_item, update_item
+from peewee_database import get_items, add_item, delete_item, update_item
 
 @route('/')
 def get_index():
@@ -14,12 +14,13 @@ def get_list():
 @post('/add')
 def post_add():
     description = request.forms.get("description")
-    quantity = request.forms.get("quantity")
+    # quantity = request.forms.get("quantity")
     try:
         quantity = int(quantity)
     except:
         quantity = 1
-    add_item(description, quantity)
+    # add_item(description, quantity)
+    add_item(description)
     redirect('/list')
 
 @route("/delete/<id>")
